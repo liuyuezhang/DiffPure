@@ -214,6 +214,10 @@ class RevGuidedDiffusion(torch.nn.Module):
         xs = []
         for it in range(self.args.sample_step):
 
+            # # lyz: add random seed here
+            # np.random.seed(0)
+            # torch.manual_seed(0)
+
             e = torch.randn_like(x0).to(self.device)
             total_noise_levels = self.args.t
             if self.args.rand_t:
